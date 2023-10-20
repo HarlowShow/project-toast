@@ -16,8 +16,9 @@ function ToastProvider({ children }) {
     setMessage("");
   };
 
-  const deleteToast = (index) => {
-    const nextToasts = toasts.splice(index + 1);
+  const deleteToast = (id) => {
+    const nextToasts = toasts.filter((toast) => toast.id !== id)
+    // nextToasts.splice(index);
     setToasts([...nextToasts]);
   };
 
