@@ -3,7 +3,8 @@ import React from "react";
 import Button from "../Button";
 import ToastShelf from "../ToastShelf";
 import { ToastContext } from "../ToastProvider";
-import useEscapeKey from "../../hooks/use-escape-key";
+// import useEscapeKey from "../../hooks/use-escape-key";
+import useKeyPress from "../../hooks/use-keypress";
 
 import styles from "./ToastPlayground.module.css";
 
@@ -20,8 +21,12 @@ function ToastPlayground() {
     resetToasts
   } = React.useContext(ToastContext);
 
-  useEscapeKey(() => {
-    resetToasts()
+  // useEscapeKey(() => {
+  //   resetToasts()
+  // })
+
+  useKeyPress('Escape', () => {
+    resetToasts();
   })
 
   return (
